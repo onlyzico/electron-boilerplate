@@ -1,0 +1,22 @@
+appId: com.electron.app
+productName: electron-app
+directories:
+  buildResources: build
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.js'
+  - '!{.eslintignore,.eslintrc.js,.prettierignore,.prettierrc}'
+win:
+  executableName: electron-app
+nsis:
+  artifactName: ${name}-${version}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: always
+mac:
+  entitlementsInherit: build/entitlements.mac.plist
+  notarize: false
+dmg:
+  artifactName: ${name}-${version}.${ext}
+npmRebuild: true
